@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "telegram-bridge": {
+      "command": "${workspaceFolder}/.venv/Scripts/python.exe",
+      "args": ["-m", "telegram_bridge"],
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}",
+        "PYTHONUTF8": "1"
+      },
+      "envFile": "${workspaceFolder}/.env"
+    }
+  }
+}

@@ -1,0 +1,21 @@
+---
+description: When to use Telegram MCP tools for human-in-the-loop
+alwaysApply: true
+---
+
+# Telegram human-in-the-loop
+
+This project exposes MCP tools from server `telegram-bridge`:
+
+- `ask_user_telegram(question, options?)` — wait for a Telegram button or text reply
+- `notify_user_telegram(message)` — status only, do not wait
+
+Use `ask_user_telegram` when you need a human choice (architecture A vs B, destructive confirm, unclear requirement). Do not guess. Do not call Telegram via curl/shell.
+
+Use `notify_user_telegram` for important progress that the operator should see on the phone.
+
+Do not duplicate shell Allow/Deny through MCP. Dangerous shell is gated by the `beforeShellExecution` hook.
+
+If `ask_user_telegram` returns `NO_REPLY`, do not invent an answer. Continue only with a safe default or stop and say that the operator did not reply.
+
+After any code change, update `_docs` as described in `AGENTS.md`.

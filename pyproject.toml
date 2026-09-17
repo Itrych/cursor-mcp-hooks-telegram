@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cursor-mcp-hooks-telegram"
+version = "0.1.0"
+description = "Cursor MCP server and hooks that bridge the agent to Telegram for human-in-the-loop."
+readme = "README.en.md"
+requires-python = ">=3.11"
+license = { file = "LICENSE" }
+authors = [{ name = "Itrych" }]
+dependencies = [
+  "mcp>=1.28,<2",
+]
+
+[tool.setuptools.packages.find]
+include = ["telegram_bridge*"]
