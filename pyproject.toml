@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "cursor-mcp-hooks-telegram"
-version = "0.1.0"
+version = "0.1.1"
 description = "Cursor MCP server and hooks that bridge the agent to Telegram for human-in-the-loop."
 readme = "README.en.md"
 requires-python = ">=3.11"

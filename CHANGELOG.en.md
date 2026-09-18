@@ -4,6 +4,12 @@
 
 This file follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versions follow [SemVer](https://semver.org/).
 
+## [0.1.1] — 2026-09-18
+
+### Changed
+
+- README now documents the Desktop Auto-review allowlist: use `telegram-bridge:*`, not the server name or tool name alone.
+
 ## [0.1.0] — 2026-09-17
 
 Initial release.

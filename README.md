@@ -85,6 +85,29 @@ python -m venv .venv
 
 Не кладите копию MCP-сервера ещё и в `.cursor/mcp.json` проекта: Cursor поднимет два процесса и они столкнутся на порту `8765`. Шаблон для справки: `.cursor/mcp.json.example`.
 
+## Auto-review и allowlist MCP
+
+Если в чате появляется карточка Skip / Run, вызов MCP ещё не дошёл до Telegram. Нужно нажать Run.
+
+Чтобы Cursor не спрашивал каждый раз: Settings → Agents → Approvals & Execution → allowlist. Формат записи — `server:tool` (имя сервера из `mcp.json` и имя инструмента):
+
+- `telegram-bridge:*` — оба инструмента
+- или по отдельности: `telegram-bridge:ask_user_telegram` и `telegram-bridge:notify_user_telegram`
+
+Не указывайте только `telegram-bridge` или только `notify_user_telegram`: Cursor удалит такие строки.
+
+Альтернатива — файл `%USERPROFILE%\.cursor\permissions.json`:
+
+```json
+{
+  "mcpAllowlist": [
+    "telegram-bridge:*"
+  ]
+}
+```
+
+Это формат Cursor Desktop, не CLI-запись вида `Mcp(...)`. Если в файле задан ключ `mcpAllowlist`, он полностью заменяет список из IDE.
+
 ## Инструменты MCP
 
 ### `ask_user_telegram(question, options?)`

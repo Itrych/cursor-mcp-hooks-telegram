@@ -4,6 +4,12 @@
 
 Формат близок к [Keep a Changelog](https://keepachangelog.com/ru/1.1.0/). Версии следуют [SemVer](https://semver.org/lang/ru/).
 
+## [0.1.1] — 2026-09-18
+
+### Изменено
+
+- В README описан allowlist Auto-review для Desktop: `telegram-bridge:*`, а не имя сервера или инструмента по отдельности.
+
 ## [0.1.0] — 2026-09-17
 
 Первый выпуск.

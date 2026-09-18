@@ -85,6 +85,29 @@ Then reload the window. In Settings → MCP enable `telegram-bridge`. In Setting
 
 Do not also add the same MCP server to a project's `.cursor/mcp.json`: Cursor would start two processes and they would collide on port `8765`. A reference template lives at `.cursor/mcp.json.example`.
 
+## Auto-review and the MCP allowlist
+
+If the chat shows a Skip / Run card, the MCP call has not reached Telegram yet. Press Run.
+
+To skip that prompt: Settings → Agents → Approvals & Execution → allowlist. The entry format is `server:tool` (the `mcp.json` server name and the tool name):
+
+- `telegram-bridge:*` — both tools
+- or separately: `telegram-bridge:ask_user_telegram` and `telegram-bridge:notify_user_telegram`
+
+Do not enter `telegram-bridge` or `notify_user_telegram` alone: Cursor drops those strings.
+
+Alternatively, create `%USERPROFILE%\.cursor\permissions.json`:
+
+```json
+{
+  "mcpAllowlist": [
+    "telegram-bridge:*"
+  ]
+}
+```
+
+This is the Cursor Desktop format, not the CLI `Mcp(...)` form. If the file sets `mcpAllowlist`, it fully replaces the IDE allowlist for MCP.
+
 ## MCP tools
 
 ### `ask_user_telegram(question, options?)`
